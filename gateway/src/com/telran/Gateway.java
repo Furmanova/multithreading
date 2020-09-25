@@ -29,7 +29,7 @@ public class Gateway implements Runnable {
             while ((line = socketInClient.readLine()) != null) {
                 System.out.println(String.format("The string %s was accepted from the client", line));
 
-                //backend calling
+                //com.telran.backend calling
 
                     String[] res = udp.sentence.split(":");
                     String host = res[0];
@@ -42,14 +42,14 @@ public class Gateway implements Runnable {
                     BufferedReader socketInputBack =
                             new BufferedReader(new InputStreamReader(backSocket.getInputStream()));
 
-                    //responding to backend
+                    //responding to com.telran.backend
                     socketOutBack.println(line);
                     String response = socketInputBack.readLine();
                     backSocket.close();
 
                     //responding to client
                     System.out.println(String.format(
-                            "Response %s was received from the backend", response));
+                            "Response %s was received from the com.telran.backend", response));
                     socketOutClient.println(response);
                 }
 

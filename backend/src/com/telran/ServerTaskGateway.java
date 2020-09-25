@@ -18,7 +18,8 @@ public class ServerTaskGateway implements Runnable {
         try {
             PrintStream socketOut = new PrintStream(socket.getOutputStream());
             // объект получает данные от клиента
-            BufferedReader socketIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            BufferedReader socketIn =
+                    new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
             String line;
             while ((line = socketIn.readLine()) != null) {
